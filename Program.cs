@@ -1,60 +1,62 @@
-﻿using System.Drawing;
+﻿using System;
 using System.Collections.Generic;
 
-Console.WriteLine("GenericCollection !");
-List<int> valuelist = new List<int>();
-valuelist.Add(23);//Listeye eleman ekleme
-valuelist.Add(5);
-valuelist.Add(12);
-valuelist.Add(18);
-valuelist.Add(1);
+Console.WriteLine("Generic Collection!");
 
-List<string> colours = new List<string>();
-colours.Add("Red");
-colours.Add("Blue");
-colours.Add("Yellow");
-colours.Add("black");
+// Creating a List of integers
+List<int> valueList = new List<int>();
+valueList.Add(23);  // Adding elements to the list
+valueList.Add(5);
+valueList.Add(12);
+valueList.Add(18);
+valueList.Add(1);
 
-Console.WriteLine(colours.Count);
-Console.WriteLine(valuelist.Count);
+// Creating a List of strings
+List<string> colors = new List<string>();
+colors.Add("Red");
+colors.Add("Blue");
+colors.Add("Yellow");
+colors.Add("Black");
 
-foreach (var color in colours)
+// Displaying the count of elements in the lists
+Console.WriteLine($"Number of elements in 'colors': {colors.Count}");
+Console.WriteLine($"Number of elements in 'valueList': {valueList.Count}");
+
+// Iterating through the 'colors' list using foreach
+Console.WriteLine("Colors:");
+foreach (var color in colors)
 {
     Console.WriteLine(color);
 }
 
-
-foreach (var value in valuelist)
+// Iterating through the 'valueList' list using foreach
+Console.WriteLine("Values:");
+foreach (var value in valueList)
 {
     Console.WriteLine(value);
 }
 
-valuelist.ForEach(value=> Console.WriteLine(value));
+// Using ForEach method to print elements in 'valueList'
+valueList.ForEach(value => Console.WriteLine(value));
 
+// Removing elements from the lists
+valueList.Remove(1);
+colors.Remove("Red");
 
-//Listeden eleman çıkarma
-valuelist.Remove(1);
-colours.Remove("Red");
+// Displaying elements in 'valueList' after removal
+valueList.ForEach(value => Console.WriteLine(value));
 
-valuelist.ForEach(value=> Console.WriteLine(value));//Foreach kısa hali
-colours.ForEach(color=> Console.WriteLine(color));
+// Displaying elements in 'colors' after removal
+colors.ForEach(color => Console.WriteLine(color));
 
-
-//Liste içersinde arama
-if(valuelist.Contains(1))
- Console.WriteLine("1 Liste içinde bulundu.");
+// Searching for an element in 'valueList'
+if (valueList.Contains(1))
+    Console.WriteLine("1 is found in the list.");
 else
-Console.WriteLine("1 bulunamadı");
+    Console.WriteLine("1 is not found.");
 
-//Eleman ile index' erişme
-Console.WriteLine(colours.BinarySearch("Black"));
+// Searching for an element in 'colors'
+Console.WriteLine($"Index of 'Black' in 'colors': {colors.BinarySearch("Black")}"); // Returns a negative value if not found
 
-//Liste nasıl temizlenir ?
-colours.Clear();
-
-
- 
-
-
-
-
+// Clearing the entire list
+colors.Clear();
